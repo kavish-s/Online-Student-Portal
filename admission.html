@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo.png" alt="Portal Logo" class="logo">
+        <a href="home.html">Home</a>
+        <a href="admission.html">Admission</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="marks.html">Marks</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="library.html">Library</a>
+        <a href="support.html">Support</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="admission-form-container">
+        <h2>Admission Form</h2>
+        <form onsubmit="submitAdmission(event)">            <div class="admission-form-group">
+                <input type="text" id="first-name" required>
+                <label for="first-name">First Name</label>
+            </div>
+            <div class="admission-form-group">
+                <input type="text" id="last-name" required>
+                <label for="last-name">Last Name</label>
+            </div>
+            <div class="admission-form-group">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="admission-form-group">
+                <input type="text" id="phone" required>
+                <label for="phone">Phone</label>
+            </div>
+            <div class="admission-form-group">
+                <select id="course" required>
+                    <option value="" disabled selected></option>
+                    <option value="btech">B.Tech</option>
+                    <option value="mtech">M.Tech</option>
+                    <option value="bca">BCA</option>
+                    <option value="mca">MCA</option>
+                </select>
+                <label for="course">Course</label>
+            </div>
+            <div class="admission-form-group">
+                <textarea id="address" rows="4" required></textarea>
+                <label for="address">Address</label>
+            </div>
+            <div class="admission-form-group">
+                <button type="submit">Submit Application</button>
+            </div>
+        </form>
+        <div id="success-msg" class="success-msg"></div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

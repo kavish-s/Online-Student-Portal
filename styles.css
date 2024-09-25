@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;400;700;900&display=swap');
+
+/* Global Styles */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bitter', serif; /* Apply Bitter font to all text */
+    background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%); /* Radial gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; /* Horizontal layout with vertical navbar */
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%); /* Apply same gradient to navbar */
+    padding: 20px;
+    width: 220px; /* Fixed width for vertical navbar */
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+    align-items: center; /* Center items horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: fixed; /* Fix it to the left */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Logo in Navbar */
+.logo {
+    height: 80px; /* Adjusted height for better fit */
+    width: auto; /* Maintain aspect ratio */
+    margin-bottom: 30px; /* Add spacing below logo */
+}
+
+/* Navbar Links */
+.navbar a {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px; /* Center text vertically */
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px; /* Round buttons */
+    border: 3px solid seagreen; /* Button border */
+    color: seagreen;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    transition: all .35s;
+    margin-bottom: 20px;
+}
+
+/* Hover effects for Navbar Links */
+.navbar a:before,
+.navbar a:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    background: seagreen;
+    z-index: -1;
+    transition: all .35s;
+}
+
+.navbar a:before {
+    opacity: .5;
+}
+
+.navbar a:after {
+    transition-delay: .2s;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
+
+.navbar a:hover:before,
+.navbar a:hover:after {
+    top: 0;
+}
+
+/* Container for page content */
+.content-container {
+    margin-left: 240px; /* Adjust margin to account for the width of the fixed navbar */
+    padding: 40px;
+    width: calc(100% - 240px); /* Make content take the remaining width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Buttons with Animation */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    color: seagreen; /* Button text color */
+    border-radius: 50px; /* Round buttons */
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    transition: all .35s;
+    border: 3px solid seagreen;
+    margin-top: 15px;
+}
+
+.btn:before,
+.btn:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    background: seagreen;
+    z-index: -1;
+    transition: all .35s;
+}
+
+.btn:before {
+    opacity: .5;
+}
+
+.btn:after {
+    transition-delay: .2s;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn:hover:before,
+.btn:hover:after {
+    top: 0;
+}
+
+/* Admission Form Container */
+.admission-form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Heading */
+.admission-form-container h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Form Fields */
+.admission-form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.admission-form-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #888;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.admission-form-group input,
+.admission-form-group textarea,
+.admission-form-group select {
+    width: 100%;
+    padding: 15px;
+    padding-left: 45px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.admission-form-group input:focus,
+.admission-form-group textarea:focus,
+.admission-form-group select:focus {
+    border-color: seagreen;
+    background-color: #fff;
+    outline: none;
+}
+
+.admission-form-group input:focus + label,
+.admission-form-group textarea:focus + label,
+.admission-form-group input:not(:placeholder-shown) + label,
+.admission-form-group textarea:not(:placeholder-shown) + label,
+.admission-form-group select:focus + label {
+    top: -10px;
+    font-size: 12px;
+    color: seagreen;
+}
+
+/* Dropdown select styling */
+.admission-form-group select {
+    appearance: none;
+    background: url('dropdown-arrow.png') no-repeat right 15px center;
+    background-size: 15px;
+}
+
+/* Submit Button */
+.admission-form-group button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    background-color: seagreen;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admission-form-group button:hover {
+    background-color: darkseagreen;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .admission-form-container {
+        padding: 20px;
+    }
+}
+
+/* Login Form Container */
+.login-form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Heading */
+.login-form-container h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Form Fields */
+.login-form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.login-form-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #888;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.login-form-group input {
+    width: 100%;
+    padding: 15px;
+    padding-left: 45px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.login-form-group input:focus {
+    border-color: seagreen;
+    background-color: #fff;
+    outline: none;
+}
+
+.login-form-group input:focus + label,
+.login-form-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: seagreen;
+}
+
+/* Submit Button */
+.login-form-group button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    background-color: seagreen;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-group button:hover {
+    background-color: darkseagreen;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .login-form-container {
+        padding: 20px;
+    }
+}
