@@ -1,4 +1,6 @@
-function validateLogin() {
+function validateLogin(event) {
+    event.preventDefault(); // Prevent the form from being submitted
+
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
 
@@ -6,19 +8,19 @@ function validateLogin() {
     const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     if (!email.match(emailPattern)) {
         alert('Please enter a valid email address.');
-        return false; // Prevent form submission
+        return false; // Stop form processing
     }
 
     // Password validation
     if (password.length < 6) {
         alert('Password must be at least 6 characters long.');
-        return false; // Prevent form submission
+        return false; // Stop form processing
     }
 
-    // If validation passes, allow form submission
+    // If validation passes, redirect to the home page
+    window.location.href = "home.html"; // Simulate a login and navigate to home
     return true;
 }
-
 
 // Handle admission form submission
 function submitAdmission(event) {
