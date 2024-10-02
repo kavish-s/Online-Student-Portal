@@ -19,7 +19,7 @@ function validateLogin(event) {
     }
 
     // Simulate a successful login by redirecting to "home.html"
-    window.location.href = "home.html"; // Redirect to the home page after validation
+    window.location.href = "/pages/home.html"; // Redirect to the home page after validation
 }
 
 // Attach validateLogin function to the form submit event
