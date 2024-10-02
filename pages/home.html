@@ -36,22 +36,8 @@
                 <img src="/images/m-school-7.jpg" alt="Image 7" class="carousel-item">
             </div>
         </div>
+    </div>
 
-    <script>
-        feather.replace();
-
-        // JavaScript to handle carousel
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.carousel-item');
-        const totalImages = images.length;
-
-        function showNextImage() {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % totalImages;
-            images[currentIndex].classList.add('active');
-        }
-
-        setInterval(showNextImage, 3000); // Change image every 3 seconds
-    </script>
+    <script src="/scripts/script.js"></script> <!-- Moved JS to script.js -->
 </body>
 </html>

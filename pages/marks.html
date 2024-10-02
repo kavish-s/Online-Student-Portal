@@ -28,18 +28,34 @@
                     <th>Marks</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="marks-body">
                 <tr>
-                    <td>Software Engineering</td>
-                    <td>78</td>
+                    <td>Department Elective</td>
+                    <td>70%</td>
                 </tr>
                 <tr>
-                    <td>Network Security</td>
-                    <td>82</td>
+                    <td>Software Engineering</td>
+                    <td>75%</td>
                 </tr>
                 <tr>
                     <td>Cybersecurity Fundamentals</td>
-                    <td>88</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>Network Security</td>
+                    <td>85%</td>
+                </tr>
+                <tr>
+                    <td>Visual Analytics</td>
+                    <td>90%</td>
+                </tr>
+                <tr>
+                    <td>Open Elective I</td>
+                    <td>95%</td>
+                </tr>
+                <tr>
+                    <td>Open Elective II</td>
+                    <td>100%</td>
                 </tr>
             </tbody>
         </table>
@@ -49,33 +65,7 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script> <!-- Add XLSX library -->
-    <script>
-        function downloadMarksheet() {
-            const username = prompt("Enter your login username:");
-            if (!username) {
-                alert("Username is required to download the marksheet.");
-                return;
-            }
-
-            // Create a worksheet from the marks
-            const ws_data = [
-                ["Subject", "Marks"],
-                ["Math", 78],
-                ["Science", 82],
-                ["English", 88]
-            ];
-
-            const wb = XLSX.utils.book_new();
-            const ws = XLSX.utils.aoa_to_sheet(ws_data);
-
-            XLSX.utils.book_append_sheet(wb, ws, "Marks");
-
-            // Add username to the filename
-            const filename = `${username}_marksheet.xlsx`;
-
-            XLSX.writeFile(wb, filename);
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script> <!-- XLSX library -->
+    <script src="/scripts/script.js"></script> <!-- External JS file -->
 </body>
 </html>
