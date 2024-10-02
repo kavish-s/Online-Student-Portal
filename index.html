@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Student Portal</title>
-    <head>
-        <link rel="stylesheet" href="style/styles.css">
-    </head>
-    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="style/styles.css">
+    <script src="scripts/script.js" defer></script> <!-- Correct path and deferred loading -->
 </head>
 <body>
 
     <div class="login-form-container">
         <img src="images/logo.png" alt="Portal Logo" class="logo">
         <h2>Login</h2>
-        <form id="login-form"> <!-- Removed action and method -->
+        <form id="login-form"> <!-- Form element -->
             <div class="login-form-group">
                 <input type="email" id="login-email" placeholder=" " required>
                 <label for="login-email">Email</label>
