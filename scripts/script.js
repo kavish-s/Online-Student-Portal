@@ -19,7 +19,7 @@ function validateLogin(event) {
     }
 
     // Simulate a successful login by redirecting to "home.html"
-    window.location.href = "/pages/home.html";
+    window.location.href = "./pages/home.html";
 }
 
 // Handle admission form submission
