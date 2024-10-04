@@ -40,15 +40,33 @@ function submitAdmission(event) {
 }
 
 // Image Carousel logic
-let currentIndex = 0;
-const images = document.querySelectorAll('.carousel-item');
-const totalImages = images.length;
+let currentIndex = 0; // Track the current index of the carousel
+const items = document.querySelectorAll('.carousel-item'); // Get all carousel items
+const totalItems = items.length; // Total number of items
 
-function showNextImage() {
-    images[currentIndex].classList.remove('active');
-    currentIndex = (currentIndex + 1) % totalImages;
-    images[currentIndex].classList.add('active');
+// Function to update the carousel display
+function updateCarousel() {
+    const offset = -currentIndex * 100; // Calculate offset based on the current index
+    document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`; // Apply offset
 }
+
+// Event listeners for navigation buttons
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1; // Move to the previous item or wrap around
+    updateCarousel(); // Update the carousel display
+});
+
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0; // Move to the next item or wrap around
+    updateCarousel(); // Update the carousel display
+});
+
+// Optional: Automatically advance the carousel every 5 seconds
+setInterval(() => {
+    currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+    updateCarousel();
+}, 5000);
+
 
 setInterval(showNextImage, 3000); // Change image every 3 seconds
 
