@@ -525,3 +525,29 @@ a {
     color: #2e8b57;
     text-decoration: none;
 }
+
+/* General form group styling */
+.login-form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Styling for the password options (checkbox and label in one line) */
+.password-options {
+    display: flex;
+    align-items: center;
+    margin-top: -10px; /* Adjust based on how close you want it to the password box */
+}
+
+.password-options input[type="checkbox"] {
+    margin-right: 8px; /* Adds space between the checkbox and the label */
+}
+
+/* Optional: Adjusting input fields */
+input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
