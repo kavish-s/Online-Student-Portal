@@ -12,12 +12,37 @@ This project is designed to showcase various functionalities including a login s
 ├── scripts/            # Contains JavaScript files
 │   └── script.js       # Main JavaScript file for handling interactivity
 ├── pages/              # Contains all individual pages of the application
-│   ├── [list of all pages]  # Specific pages of the application
+│   ├── attendance.html  # Attendance page for tracking student attendance
+│   ├── admission.html      # Marks page for displaying students' scores
+│   ├── library.html    # Settings page for user preferences and settings
+│   └── [other pages]   # Specific pages of the application
 ├── images/             # Contains all logos and images used in the application
 │   └── [list of images] # Specific images used in the application
 ├── README.md           # Documentation for the project
 └── LICENSE.txt         # License for the project 
 ```
+
+## Page Functionalities
+
+### 1. `index.html`
+- The main landing page of the application.
+- Features a vertical navigation bar for easy access to other pages.
+- Includes an image carousel to showcase featured images.
+- Contains a section for important announcements.
+
+### 2. `attendance.html`
+- Provides a user-friendly interface to record and view student attendance.
+- Displays attendance records with options to filter by date and student.
+- Allows teachers to mark attendance for students easily.
+
+### 3. `marks.html`
+- Displays students' scores and grades in a structured format.
+- Utilizes a table layout to present subject names and marks clearly.
+- Allows for easy updating and viewing of students' performance.
+
+### 4. `settings.html`
+- Provides options for users to manage their preferences and settings.
+- Allows users to update their profiles and manage notification settings.
 
 ## Features
 - **Responsive Design:** The application adapts to different screen sizes.
