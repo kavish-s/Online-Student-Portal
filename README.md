@@ -15,7 +15,8 @@ This project is designed to showcase various functionalities including a login s
 │   ├── [list of all pages]  # Specific pages of the application
 ├── images/             # Contains all logos and images used in the application
 │   └── [list of images] # Specific images used in the application
-└── README.md           # Documentation for the project
+├── README.md           # Documentation for the project
+└── LICENSE.txt         # License for the project 
 ```
 
 ## Features
