@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;400;700;900&display=swap');
+/* Import the local font */
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype'); /* Ensure the path is correct */
+}
 
 /* Global Styles */
 *,
@@ -8,7 +12,7 @@
 }
 
 body {
-    font-family: 'Bitter', serif; /* Apply Bitter font to all text */
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font to all text */
     background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%); /* Radial gradient background */
     margin: 0;
     padding: 0;
