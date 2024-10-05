@@ -533,21 +533,40 @@ a {
 }
 
 /* Styling for the password options (checkbox and label in one line) */
+/* Styling for the password options */
 .password-options {
     display: flex;
     align-items: center;
-    margin-top: -10px; /* Adjust based on how close you want it to the password box */
+    justify-content: center; /* Center align the checkbox and label */
+    margin-top: 10px; /* Adjust based on the spacing you want */
 }
 
+/* Hide the actual checkbox */
 .password-options input[type="checkbox"] {
-    margin-right: 8px; /* Adds space between the checkbox and the label */
+    display: none; /* Hide the default checkbox */
 }
 
-/* Optional: Adjusting input fields */
-input[type="number"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 5px;
+/* Style the label to look like a button */
+.show-password-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    color: seagreen;
+    border-radius: 50px; /* Rounded corners */
+    text-decoration: none;
+    background-color: transparent;
+    border: 3px solid seagreen;
+    transition: all 0.35s;
+    cursor: pointer;
 }
 
+/* Hover effect for the show password button */
+.show-password-btn:hover {
+    color: white;
+    background-color: seagreen;
+}
+
+/* Custom checkbox behavior when checked */
+.password-options input[type="checkbox"]:checked + .show-password-btn {
+    background-color: seagreen;
+    color: white;
+}
