@@ -7,7 +7,7 @@ function validateLogin(event) {
 
     // SAP ID validation (should be between 70102200000 and 70102201000)
     const sapIdNumber = parseInt(sapId, 10); // Convert to integer for comparison
-    if (sapIdNumber < 70102200000 || sapIdNumber > 70102201000) {
+    if (isNaN(sapIdNumber) || sapIdNumber < 70102200000 || sapIdNumber > 70102201000) {
         alert('Please enter a valid SAP ID between 70102200000 and 70102201000.');
         return false;
     }
@@ -22,8 +22,70 @@ function validateLogin(event) {
         return false;
     }
 
-    // Simulate a successful login by redirecting to "home.html"
-    window.location.href = "./pages/home.html"; // Redirect to the home page after validation
+    // Store SAP ID in localStorage as the logged-in state
+    localStorage.setItem('loggedInSapId', sapId);
+
+    // Redirect to the home page after validation
+    window.location.href = "./pages/home.html";
+}
+
+// Function to check if the user is logged in
+function checkLoginStatus() {
+    const loggedInSapId = localStorage.getItem('loggedInSapId');
+    if (!loggedInSapId) {
+        // If no user is logged in, redirect to login page
+        window.location.href = "../index.html";
+    }
+}
+
+// Call the checkLoginStatus function on each protected page (e.g., home, attendance, marks)
+document.addEventListener("DOMContentLoaded", () => {
+    // Check login status if on protected pages
+    const path = window.location.pathname.split("/").pop();
+    if (path !== 'index.html') {
+        checkLoginStatus();
+    }
+
+    // Attach validateLogin function to the form submit event
+    const loginForm = document.getElementById("login-form");
+    if (loginForm) {
+        loginForm.addEventListener("submit", validateLogin);
+    }
+
+    // Attach show/hide password toggle event
+    const showPasswordCheckbox = document.getElementById('show-password');
+    if (showPasswordCheckbox) {
+        showPasswordCheckbox.addEventListener('change', function() {
+            const passwordField = document.getElementById('login-password');
+            passwordField.type = this.checked ? 'text' : 'password'; // Show/hide password
+        });
+    }
+
+    // Initialize the carousel only if the carousel exists on the page
+    const carouselContainer = document.querySelector('.carousel-images');
+    if (carouselContainer) {
+        initCarousel();
+    }
+
+    // If on the admission page, attach the admission form submit handler
+    const admissionForm = document.getElementById("admission-form");
+    if (admissionForm) {
+        admissionForm.addEventListener("submit", submitAdmission);
+    }
+
+    // Check for the download marksheet button and attach the handler
+    const downloadMarksheetBtn = document.getElementById("download-marksheet");
+    if (downloadMarksheetBtn) {
+        downloadMarksheetBtn.addEventListener("click", downloadMarksheet);
+    }
+});
+
+// Function to log out the user
+function logout() {
+    // Clear the login state from localStorage
+    localStorage.removeItem('loggedInSapId');
+    // Redirect back to the login page
+    window.location.href = "../index.html";
 }
 
 // Handle admission form submission
@@ -92,34 +154,6 @@ function initCarousel() {
         updateCarousel();
     }, 5000);
 }
-
-// Attach all event listeners after the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-    // Attach validateLogin function to the form submit event
-    const loginForm = document.getElementById("login-form");
-    if (loginForm) {
-        loginForm.addEventListener("submit", validateLogin);
-    }
-
-    // Attach show/hide password toggle event
-    const showPasswordCheckbox = document.getElementById('show-password');
-    if (showPasswordCheckbox) {
-        showPasswordCheckbox.addEventListener('change', function() {
-            const passwordField = document.getElementById('login-password');
-            if (this.checked) {
-                passwordField.type = 'text'; // Show password
-            } else {
-                passwordField.type = 'password'; // Hide password
-            }
-        });
-    }
-
-    // Initialize the carousel only if the carousel exists on the page
-    const carouselContainer = document.querySelector('.carousel-images');
-    if (carouselContainer) {
-        initCarousel();
-    }
-});
 
 // Function to download the marksheet by fetching data from the table in marks.html
 function downloadMarksheet() {
