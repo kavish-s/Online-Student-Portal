@@ -29,12 +29,38 @@ function validateLogin(event) {
 // Handle admission form submission
 function submitAdmission(event) {
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const course = document.getElementById("course").value;
 
-    const successMsg = document.getElementById("success-msg");
-    successMsg.textContent = `Admission successful for ${name}.`;
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const course = document.getElementById("course").value;
+    const address = document.getElementById("address").value;
+
+    const admissionData = {
+        firstName,
+        lastName,
+        email,
+        phone,
+        course,
+        address
+    };
+
+    fetch('http://localhost:5000/api/admission/submit-admission', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(admissionData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        const successMsg = document.getElementById("success-msg");
+        successMsg.textContent = data.message;
+    })
+    .catch(error => {
+        console.error('Error submitting admission:', error);
+    });
 }
 
 // Image Carousel logic
